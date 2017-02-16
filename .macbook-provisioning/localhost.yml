@@ -1,0 +1,179 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  vars:
+    homebrew_taps:
+      - caskroom/cask
+      - motemen/ghq
+      - sanemat/font
+
+    homebrew_packages:
+      - { name: readline }
+      - { name: openssl }
+      - { name: openssl, state: linked, install_options: force }
+      - { name: python }
+      - { name: python3 }
+      - { name: pyenv }
+      - { name: ansible }
+      - { name: heroku-toolbelt }
+      - { name: git }
+      - { name: hub }
+      - { name: zsh, install_options: disable-etcdir }
+      - { name: zsh-completions }
+      - { name: wget }
+      - { name: curl }
+      - { name: nkf }
+      - { name: nmap }
+      - { name: peco }
+      - { name: rbenv }
+      - { name: ruby-build }
+      # - { name: mysql }
+      # - { name: postgresql }
+      - { name: sqlite }
+      - { name: redis }
+      - { name: imagemagick }
+      - { name: macvim, options: 'override-system-vim', 'with-lua', 'with-cscope' }
+      - { name: ghq }
+      - { name: automake }
+      - { name: pkg-config }
+
+    homebrew_cask_packages:
+      - { name: adobe-reader }
+      - { name: alfred }
+      # - { name: android-studio }
+      - { name: appcleaner }
+      - { name: atom }
+      # - { name: bartender }
+      - { name: base }
+      - { name: bestres }
+      - { name: bettertouchtool }
+      - { name: caffeine }
+      - { name: cheatsheet }
+      - { name: clipy }
+      - { name: commander-one }
+      - { name: coteditor }
+      # - { name: evernote }
+      - { name: dash }
+      - { name: day-o }
+      - { name: diskwave }
+      # - { name: dropbox }
+      - { name: firefox }
+      - { name: fluid }
+      - { name: flux }
+      # - { name: genymotion }
+      - { name: github-desktop }
+      - { name: google-chrome }
+      - { name: google-japanese-ime }
+      - { name: gyazo }
+      - { name: hipchat }
+      # - { name: intellij-idea }
+      - { name: iterm2 }
+      - { name: itsycal }
+      - { name: java }
+      - { name: karabiner }
+      - { name: kindle }
+      - { name: kobito }
+      - { name: libraoffice }
+      - { name: licecap }
+      - { name: macdown }
+      # - { name: mysqlworkbench }
+      # - { name: pycharm }
+      - { name: remote-desktop-connection }
+      - { name: seil } # キーボード管理
+      # - { name: sequel-pro } # mysql管理ソフト
+      - { name: skim }
+      - { name: skitch }
+      - { name: sleipnir }
+      - { name: skype }
+      - { name: slack }
+      # - { name: sophos-anti-virus-home-edition }
+      - { name: sourcetree }
+      - { name: srware-iron }
+      - { name: sublime-text }
+      - { name: teamviewer }
+      - { name: the-unarchiver }
+      - { name: xtrafinder }
+      - { name: vagrant }
+      - { name: virtualbox }
+      - { name: 1password }
+    gem_packages:
+      - { name: homesick }
+
+  tasks:
+    - name: homebrew の tap リポジトリを追加
+      homebrew_tap: tap={{ item }} state=present
+      with_items: homebrew_taps
+
+    - name: homebrew をアップデート
+      homebrew: update_homebrew=yes
+
+    # brew
+    - name: brew パッケージをインストール
+      homebrew: >
+        name={{ item.name }}
+        state={{ item.state | default('latest') }}
+        install_options={{
+          item.install_options | default() | join(',')
+          if item.install_options is not string
+          else item.install_options
+        }}
+      with_items: homebrew_packages
+      register: brew_result
+    - name: brew パッケージの情報保存先ディレクトリを作成
+      file: path=brew_info state=directory
+    - name: brew パッケージの情報を保存
+      shell: brew info {{ item }} > brew_info/{{ item }}
+      with_items: brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
+
+    # cask
+    - name: homebrew-cask のインストール
+      homebrew: name=brew-cask state=latest
+    - name: cask パッケージをインストール
+      homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
+      with_items: homebrew_cask_packages
+      register: cask_result
+    - name: cask パッケージの情報保存先ディレクトリを作成
+      file: path=cask_info state=directory
+    - name: cask パッケージの情報を保存
+      shell: brew cask info {{ item }} > cask_info/{{ item }}
+      with_items: cask_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list
+
+    # gem
+    - name: gem パッケージのインストール
+      gem: name={{ item.name }} state={{ item.state | default('latest') }}
+      with_items: gem_packages
+
+    # nodebrew
+    - name: nodebrew のインストール
+      shell: curl -L git.io/nodebrew | perl - setup
+
+    # oh-my-zsh
+    - name: oh-my-zsh のインストール
+      shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+      args:
+        creates: ~/.oh-my-zsh/
+
+    # Ricty
+    - name: xquartz のインストール (for Ricty)
+      homebrew_cask: name=xquartz
+    - name: fontforge のインストール (for Ricty)
+      homebrew: name=fontforge
+    - name: Ricty のインストール
+      homebrew: name=ricty
+    - name: 生成されたフォントファイルをコピー
+      shell: cp -f $(brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/
+      args:
+        creates: ~/Library/Fonts/Ricty-Bold.ttf
+      notify: run fc-cache
+
+    # vim-neobundle
+    - name: mkdir vim-neobundle dir
+      file: path=~/.vim/bundle state=directory
+      notify: install neobundle
+
+  handlers:
+    - name: run fc-cache
+      shell: fc-cache -vf
+    - name: install neobundle
+      command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
