@@ -79,9 +79,10 @@
       - { name: macdown }
       # - { name: mysqlworkbench }
       # - { name: pycharm }
+      - { name: psequel } # Postgresql 管理ソフト
       - { name: remote-desktop-connection }
       - { name: seil } # キーボード管理
-      # - { name: sequel-pro } # mysql管理ソフト
+      - { name: sequel-pro } # mysql管理ソフト
       - { name: skim }
       - { name: skitch }
       - { name: sleipnir }
@@ -96,6 +97,7 @@
       - { name: xtrafinder }
       - { name: vagrant }
       - { name: virtualbox }
+      - { name: visual-studio-code }
       - { name: 1password }
     gem_packages:
       - { name: homesick }
