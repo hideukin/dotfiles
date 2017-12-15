@@ -37,7 +37,7 @@
       - { name: ghq }
       - { name: automake }
       - { name: pkg-config }
-
+      - { name: sshrc }
     homebrew_cask_packages:
       - { name: adobe-reader }
       - { name: alfred }
@@ -45,58 +45,60 @@
       - { name: appcleaner }
       - { name: atom }
       # - { name: bartender }
-      - { name: base }
+      # - { name: base }
       - { name: bestres }
       - { name: bettertouchtool }
       - { name: caffeine }
       - { name: cheatsheet }
       - { name: clipy }
-      - { name: commander-one }
+      # - { name: commander-one }
       - { name: coteditor }
       # - { name: evernote }
       - { name: dash }
-      - { name: day-o }
-      - { name: diskwave }
+      # - { name: day-o }
+      - { name: dbeaver-enterprise }
+      # - { name: diskwave }
       # - { name: dropbox }
       - { name: firefox }
-      - { name: fluid }
+      # - { name: fluid }
       - { name: flux }
       # - { name: genymotion }
-      - { name: github-desktop }
+      # - { name: github-desktop }
       - { name: google-chrome }
       - { name: google-japanese-ime }
-      - { name: gyazo }
+      # - { name: gyazo }
       - { name: hipchat }
       # - { name: intellij-idea }
       - { name: iterm2 }
-      - { name: itsycal }
+      # - { name: itsycal }
       - { name: java }
       - { name: karabiner }
-      - { name: kindle }
-      - { name: kobito }
-      - { name: libraoffice }
+      # - { name: kindle }
+      # - { name: kobito }
+      # - { name: libraoffice }
       - { name: licecap }
       - { name: macdown }
       # - { name: mysqlworkbench }
       # - { name: pycharm }
-      - { name: psequel } # Postgresql 管理ソフト
-      - { name: remote-desktop-connection }
+      - { name: onyx } # メンテナンス
+      # - { name: psequel } # Postgresql 管理ソフト
+      # - { name: remote-desktop-connection }
       - { name: seil } # キーボード管理
-      - { name: sequel-pro } # mysql管理ソフト
+      # - { name: sequel-pro } # mysql管理ソフト
       - { name: skim }
       - { name: skitch }
       - { name: sleipnir }
-      - { name: skype }
+      # - { name: skype }
       - { name: slack }
       # - { name: sophos-anti-virus-home-edition }
       - { name: sourcetree }
-      - { name: srware-iron }
-      - { name: sublime-text }
+      # - { name: srware-iron }
+      # - { name: sublime-text }
       - { name: teamviewer }
       - { name: the-unarchiver }
-      - { name: xtrafinder }
+      # - { name: xtrafinder }
       - { name: vagrant }
-      - { name: virtualbox }
+      # - { name: virtualbox }
       - { name: visual-studio-code }
       - { name: 1password }
     gem_packages:
