@@ -1,0 +1,24 @@
+[user]
+	name = hideukin
+	email = hideukin@gmail.com
+[alias]
+	co = checkout
+	st = status -bs # branch short
+	br = branch
+	ci = commit
+	df = diff -w
+	gr = log --graph --decorate --oneline
+[core]
+	editor = vim
+	precomposeunicode = true
+[color]
+	ui = auto
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[diff]
+	renames = true
+[commit]
+	verbose = true
