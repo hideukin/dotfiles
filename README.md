@@ -38,9 +38,9 @@ brew install ansible
 ホームディレクトリ配下に以下のコマンドで隠しディレクトリを作成してそのディレクトリに移動し、Github からクローンする  
 
 ```
-mkdir .dotfiles
-cd .dotfiles
 git clone https://github.com/hideukin/dotfiles.git
+mv dotfiles .dotfiles
+cd .dotfiles
 ```
 
 ### シェルスクリプトによる dotfiles のリンク
@@ -69,6 +69,9 @@ git config --global user.email "メールアドレス"
 
 ## 自動化以降、設定関連
 ### ESET インストール
+
+### Canon 複合機 ドライバインストール
+C3320Fのドライバをダウンロードしてインストールする
 
 ### Atom package インストール
 ```
@@ -113,7 +116,7 @@ apm install --packages-file ~/.dotfiles/atom-package-list.txt
 	* Save Current Settings to Folder ボタンをクリックして、設定を書き出す
 * インポート
 	* エクスポートしたファイルを任意のディレクトリに配置する
-	* Prefernce ->Generalにある、Preferences ->Load Preferences from a custom folder or RULのチェックボックスにチェックをつける
+	* Prefernce ->Generalにある、Preferences ->Load Preferences from a custom folder or URLのチェックボックスにチェックをつける
 	* ディレクトリを「~/.dotfiles/」と指定する
 	* Save changes to folder when iTerm2 quits のチェックボックスにチェックをつける
 

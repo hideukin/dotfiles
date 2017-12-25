@@ -7,7 +7,10 @@
     homebrew_taps:
       - homebrew/binary
       - homebrew/dupes
+      - homebrew/versions
+      - homebrew/boneyard
       - caskroom/cask
+      - caskroom/versions
       - sanemat/font
 
     homebrew_packages:
@@ -40,8 +43,9 @@
       - { name: automake }
       - { name: pkg-config }
       - { name: sshrc }
+      - { name: fish }
     homebrew_cask_packages:
-      - { name: adobe-reader }
+      - { name: adobe-acrobat-reader }
       - { name: alfred }
       # - { name: android-studio }
       - { name: appcleaner }
@@ -58,7 +62,7 @@
       # - { name: evernote }
       - { name: dash }
       # - { name: day-o }
-      - { name: dbeaver-enterprise }
+      - { name: dbeaver-community }
       # - { name: diskwave }
       # - { name: dropbox }
       - { name: firefox }
@@ -85,7 +89,7 @@
       - { name: onyx } # メンテナンス
       # - { name: psequel } # Postgresql 管理ソフト
       # - { name: remote-desktop-connection }
-      - { name: seil } # キーボード管理
+      # - { name: seil } # キーボード管理 2017/12/20現在、high sierra未対応
       # - { name: sequel-pro } # mysql管理ソフト
       - { name: skim }
       - { name: skitch }
@@ -133,8 +137,6 @@
       with_items: "{{ brew_result.results | selectattr('changed') | map(attribute='item') | map(attribute='name') | list }}"
 
     # cask
-    - name: homebrew-cask のインストール
-      homebrew: name=brew-cask state=latest
     - name: cask パッケージをインストール
       homebrew_cask: name={{ item.name }} state={{ item.state|default('installed') }}
       with_items: '{{ homebrew_cask_packages }}'
