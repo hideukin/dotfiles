@@ -1,6 +1,5 @@
 [user]
-	name = hideukin
-	email = hideukin@gmail.com
+	useConfigOnly = true
 [alias]
 	co = checkout
 	st = status -bs # branch short
