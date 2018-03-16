@@ -5,11 +5,11 @@
   vars:
     colon: ':'
     homebrew_taps:
-      - homebrew/binary
-      - homebrew/dupes
-      - homebrew/versions
       - homebrew/boneyard
+      - homebrew/core
+      # - homebrew/binary
       - caskroom/cask
+      # - homebrew/dupes
       - caskroom/versions
       - sanemat/font
 
@@ -24,8 +24,8 @@
       - { name: heroku-toolbelt }
       - { name: git }
       - { name: hub }
-      - { name: zsh, install_options: disable-etcdir }
-      - { name: zsh-completions }
+      # - { name: zsh, install_options: disable-etcdir }
+      # - { name: zsh-completions }
       - { name: wget }
       - { name: curl }
       - { name: nkf }
@@ -45,7 +45,7 @@
       - { name: sshrc }
       - { name: fish }
     homebrew_cask_packages:
-      - { name: adobe-acrobat-reader }
+      # - { name: adobe-acrobat-reader }
       - { name: alfred }
       # - { name: android-studio }
       - { name: appcleaner }
@@ -73,7 +73,7 @@
       - { name: google-chrome }
       - { name: google-japanese-ime }
       # - { name: gyazo }
-      - { name: hipchat }
+      # - { name: hipchat }
       # - { name: intellij-idea }
       - { name: iterm2 }
       # - { name: itsycal }
@@ -93,7 +93,7 @@
       # - { name: sequel-pro } # mysql管理ソフト
       - { name: skim }
       - { name: skitch }
-      - { name: sleipnir }
+      # - { name: sleipnir }
       # - { name: skype }
       - { name: slack }
       # - { name: sophos-anti-virus-home-edition }
@@ -106,6 +106,7 @@
       - { name: vagrant }
       # - { name: virtualbox }
       - { name: visual-studio-code }
+      - { name: vivaldi }
       - { name: 1password }
     gem_packages:
       - { name: homesick }
