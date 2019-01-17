@@ -64,6 +64,7 @@
       # - { name: day-o }
       - { name: dbeaver-community }
       # - { name: diskwave }
+      - { name: docker }
       # - { name: dropbox }
       - { name: firefox }
       # - { name: fluid }
@@ -73,7 +74,6 @@
       - { name: google-chrome }
       - { name: google-japanese-ime }
       # - { name: gyazo }
-      - { name: hipchat }
       # - { name: intellij-idea }
       - { name: iterm2 }
       # - { name: itsycal }
