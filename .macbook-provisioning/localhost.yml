@@ -5,7 +5,7 @@
   vars:
     colon: ':'
     homebrew_taps:
-      - homebrew/boneyard
+      # - homebrew/boneyard
       - homebrew/core
       # - homebrew/binary
       - caskroom/cask
@@ -21,7 +21,7 @@
       - { name: python3 }
       - { name: pyenv }
       - { name: ansible }
-      - { name: heroku-toolbelt }
+      # - { name: heroku }
       - { name: git }
       - { name: hub }
       # - { name: zsh, install_options: disable-etcdir }
@@ -55,6 +55,7 @@
       - { name: bestres }
       - { name: bettertouchtool }
       - { name: caffeine }
+			- { name: clamxav }
       - { name: cheatsheet }
       - { name: clipy }
       # - { name: commander-one }
@@ -69,6 +70,7 @@
       - { name: firefox }
       # - { name: fluid }
       - { name: flux }
+			- { name: funter }
       # - { name: genymotion }
       # - { name: github-desktop }
       - { name: google-chrome }
@@ -158,10 +160,10 @@
       shell: curl -L git.io/nodebrew | perl - setup
 
     # oh-my-zsh
-    - name: oh-my-zsh のインストール
-      shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-      args:
-        creates: ~/.oh-my-zsh/
+    # - name: oh-my-zsh のインストール
+    #   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    #  args:
+    #     creates: ~/.oh-my-zsh/
 
     # Ricty
     - name: xquartz のインストール (for Ricty)
