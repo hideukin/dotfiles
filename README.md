@@ -68,10 +68,7 @@ git config --global user.email "メールアドレス"
 ```
 
 ## 自動化以降、設定関連
-### ESET インストール
-
-### Canon 複合機 ドライバインストール
-C3320Fのドライバをダウンロードしてインストールする
+### セキュリティソフト インストール
 
 ### Atom package インストール
 ```
@@ -91,11 +88,7 @@ apm install --packages-file ~/.dotfiles/atom-package-list.txt
 * ライセンス認証が発生する可能性がある
 * その場合、MS社へ電話でやり取りする必要が有ることが多いらしい
 
-### Microsoft Remote Desktop のインストール
-
 ### 1Password のログイン・同期
-
-### hipchat ログイン
 
 ### slack ログイン
 
