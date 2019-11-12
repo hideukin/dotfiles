@@ -4,11 +4,15 @@
 	name = hideukin
 [alias]
 	co = checkout
+	cob = checkout -b
 	st = status -bs # branch short
 	br = branch
 	ci = commit
 	df = diff -w
 	gr = log --graph --decorate --oneline
+	sw = switch
+	swc = switch -c
+	rs = restore
 [core]
 	editor = vim
 	precomposeunicode = true
