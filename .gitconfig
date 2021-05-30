@@ -15,7 +15,7 @@
 	swc = switch -c
 	rs = restore
 	br-md = !git branch --merged | egrep -v '\\*|develop|master|main' | xargs git branch -d
-	sync = !git fetch -p && git pull | git branch --merged | egrep -v '\\*|develop|master|main' | xargs git branch -d
+	sync = !git pull && git fetch -p && git branch --merged | egrep -v '\\*|develop|master|main' | xargs git branch -d
 [core]
 	editor = vim
 	precomposeunicode = true
@@ -31,6 +31,5 @@
 [commit]
 	verbose = true
 [pr-release]
-	token = 
 [pull]
 	rebase = false
