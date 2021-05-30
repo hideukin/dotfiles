@@ -5,3 +5,5 @@ export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
 exec fish
+export PATH="/usr/local/sbin:$PATH"
+eval "$(anyenv init -)"
