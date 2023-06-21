@@ -12,7 +12,5 @@ eval "$(anyenv init -)"
 
 . "$HOME/.cargo/env"
 
-source /Users/noda/.docker/init-bash.sh || true # Added by Docker Desktop
-
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"
