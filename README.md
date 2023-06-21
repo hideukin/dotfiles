@@ -4,26 +4,28 @@
 
 ### システム環境設定
 #### ディスプレイ
-* スペースを拡大
+* 詳細設定
+    * 解像度をリスト表示
+* すべての解像度を表示
+* 2048x1332
 
 #### トラックパッド
-* タップでクリック: チェックオン
-* スクロールの方向: チェックオフ
+* タップでクリック: オン
+* ナチュラルなスクロール: オフ
 
 #### 日付と時刻
 * 秒を表示
-* 24時間表示にする
-* 曜日を表示
-* 日付を表示
 
-### XCode
-```
-sudo xcodebuild -license
-```
+#### 一般 > 情報
+* コンピュータ名の修正
+
+#### サウンド
+* 起動時にサウンドを再生: オフ
 
 ### HomeBrew
+
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew doctor
 brew update
