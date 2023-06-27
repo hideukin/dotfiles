@@ -81,13 +81,64 @@ git config --global user.name "ユーザー名"
 git config --global user.email "メールアドレス"
 ```
 
+
+### 入れるツールなど
+- HomeBrew
+	- awscli
+	- aws-vault
+		- ~/.awsをコピー
+		- ~/.sshをコピー
+		- credencials などの設定
+	- appcleaner
+	- chrome
+		- ダウンロード&インストール
+		- 会社アカウントでログイン
+		- 履歴 > 別のPCのタブを開くで持ってこれる
+	- authy
+	- Raycast
+		- ダウンロード&インストール
+		- 元のPCから設定をExport & Import
+	- obsidian
+	- Slack
+	- Warp
+	- iterm2
+		- 設定ファイルのコピー
+	- Coteditor
+	- firefox
+	- TheUnarchiver
+	- gooogle-japanese-input
+		- 辞書ファイルの移動
+		- 入力設定の見直し(インポート機能がないため、自分でやる)
+	- clamxav
+	- rbenv ruby-build
+	- figma
+	- zoom
+	- kindle
+	- Notion
+	- fig
+	- rectangle
+	- the-unarchiver
+	- orbstack
+	- iina
+- AppStore
+	- caffeined
+	- kindle
+		- ~/Documents/My Kindle Content のコピー
+	- BitWarden
+	- SequelAce
+		- 設定ファイルのエクスポート/インポート
+		- パスワードの再設定
+- WebSiteDownload
+	- LICECap
+	- GoogleChromeBeta
+	- SequelPro
+		- 設定ファイルのエクスポート/インポート
+		- パスワードの再設定
+	- visual studio code
+		- サインインして同期
+
 ## 自動化以降、設定関連
 ### セキュリティソフト インストール
-
-### Atom package インストール
-```
-apm install --packages-file ~/.dotfiles/atom-package-list.txt
-```
 
 ### Google 日本語入力の辞書インポート
 * 旧端末からエクスポートしておくこと
@@ -95,25 +146,7 @@ apm install --packages-file ~/.dotfiles/atom-package-list.txt
 
 ### Google Chrome へのログイン
 
-### Parallels Desktop のインストール
-
-### Parallels VMファイルのコピー
-* 旧端末からVMファイルを持ってくること
-* ライセンス認証が発生する可能性がある
-* その場合、MS社へ電話でやり取りする必要が有ることが多いらしい
-
-### 1Password のログイン・同期
-
 ### slack ログイン
-
-### Clipy 設定変更
-* 定型文登録
-	* スニペットの書き出しが可能であるため、旧端末から取得しておくこと
-	* 「スニペットを読み込む」 から追加できる
-* ショートカット変更
-	* メインメニュー: ^+cmd+V
-	* 履歴メニュー: sft+cmd+V
-	* スニペットメニュー: sft+cmd+B
 
 ### iterm2 設定
 * エクスポート
